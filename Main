@@ -1,0 +1,25 @@
+import random 
+import math
+Randomizelow=int(input("enter lower bound: "))
+Randomizeupper=int(input("enter upper bound: "))
+#The variable Numberandomizer generated a random nunber you put for the range for Randomizelow and Randomizeupper
+Numberandomizer=random.randint(Randomizelow, Randomizeupper)
+#In math.log the math logarithm uses the base2 which then divides the range in half and narrowing down the number of possible guesses
+print("smaller the range the lower guess, the bigger the range is the more guess you get",round(math.log(Randomizeupper - Randomizelow + 1, 2)))
+guess=0
+while (guess<(math.log(Randomizeupper - Randomizelow +1,2))):
+       guess += 1
+       numb=int(input("guess the number"))
+       #If Numberandomizer is greater than the input you entered than the number you entered was too low
+       if Numberandomizer > numb:
+              print("You guessed too low")
+       #If Numberandomizer is less than the input you entered than the number you put was too high
+       elif Numberandomizer < numb:
+              print("You guessed too high")
+       #If Numberandomizer is equal to the input you entered than it means you got the number exactly
+       elif Numberandomizer == numb:
+              print("You guessed the number correctly")
+              break
+       #If you guess more than the amount that was given to guess the integer, the computer reveals the number
+if guess>= math.log(Randomizeupper - Randomizelow +1,2):
+       print("The number is %d"% Numberandomizer)
